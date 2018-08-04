@@ -1,6 +1,19 @@
 const { identity, compose, fromPairs, map, split, tail, tap } = R
 const log = tap(console.log)
 
+const sentiment = `Your sentiment analysis is `
+const badRequest = `hmm, I'm can't get a good read on you, try typing another word or adding an emoji`
+const analytical = `You sound so smart`
+const angry = `Why so serious`
+const confident = `its not that you're cocky, your confident`
+const fear - `there's noting to fear except fear itself`
+const joy = ``
+const sadness = ``
+const tentative = ``
+
+const sentiments = [ 'Analytical', 'Anger', 'Confident', 'Fear', 'Joy', 'Sadness', 'Tentative']
+
+
 var response = {
   document_tone: {
     tones: [
