@@ -1,0 +1,101 @@
+https://egghead.io/lessons/javascript-ramda-filter-reject-and-partition
+
+https://egghead.io/lessons/javascript-change-object-properties-with-ramda-lenses
+
+https://egghead.io/lessons/javascript-pick-and-omit-properties-from-objects-using-ramda
+
+https://egghead.io/search?q=ramda
+
+const log = R.tap(console.log)
+const document_tone = {
+    tones: [
+      {
+        score: 0.6165,
+        tone_id: "sadness",
+        tone_name: "Sadness"
+      },
+      {
+        score: 0.829888,
+        tone_id: "analytical",
+        tone_name: "Analytical"
+      }
+    ],
+  sentences_tone: [
+    {
+      sentence_id: 0,
+      text: "Team, I know that times are tough!",
+      tones: [
+        {
+          score: 0.801827,
+          tone_id: "analytical",
+          tone_name: "Analytical"
+        }
+      ]
+    },
+    {
+      sentence_id: 1,
+      text:
+        "Product sales have been disappointing for the past three quarters.",
+      tones: [
+        {
+          score: 0.771241,
+          tone_id: "sadness",
+          tone_name: "Sadness"
+        },
+        {
+          score: 0.687768,
+          tone_id: "analytical",
+          tone_name: "Analytical"
+        }
+      ]
+    },
+    {
+      sentence_id: 2,
+      text:
+        "We have a competitive product, but we need to do a better job of selling it!",
+      tones: [
+        {
+          score: 0.506763,
+          tone_id: "analytical",
+          tone_name: "Analytical"
+        }
+      ]
+    }
+  ]
+};
+
+const getProps = R.pick(['tones'])
+const yo = getProps(document_tone)
+//log(yo)
+const getScoreAndTone = R.project(['score', 'tone_name'])
+const result = getScoreAndTone(document_tone.tones)
+
+//.map(R.pick(['score', 'tone_name']))
+//R.evolve(response)
+
+//const predicate = R.where({
+  //document_tone: R.equals('tones'),
+//} )
+
+
+//const getResults = R.pipe(log, R.filter(predicate), R.pluck('score'))
+//const result = getResults(response)
+//log(yo)
+
+//log(result)//
+
+log(document_tone.tones)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
