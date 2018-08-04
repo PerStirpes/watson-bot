@@ -93,10 +93,10 @@ log(document_tone.tones)
 
 
 
+npm scripts: https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool
+useful Pipeline: https://egghead.io/lessons/javascript-build-a-functional-pipeline-with-ramda-js
 
-
-
-
+useful Branching Logic: https://egghead.io/lessons/javascript-handle-branching-logic-with-ramda-s-conditional-functions
 
 
 https://developer.ibm.com/code/technologies/artificial-intelligence/
