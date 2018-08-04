@@ -1,3 +1,6 @@
+const { identity, compose, fromPairs, map, split, tail, tap } = R
+const log = tap(console.log)
+
 var response = {
   document_tone: {
     tones: [
@@ -53,6 +56,45 @@ var response = {
           tone_name: 'Analytical'
         }
       ]
+    }
+  ]
+}
+
+var document_tone_tones = [
+  {
+    score: 0.6165,
+    tone_id: 'sadness',
+    tone_name: 'Sadness'
+  },
+  {
+    score: 0.829888,
+    tone_id: 'analytical',
+    tone_name: 'Analytical'
+  }
+]
+
+var getScoresAndTones = [
+  {
+    score: 0.6165,
+    tone_name: 'Sadness'
+  },
+  {
+    score: 0.829888,
+    tone_name: 'Analytical'
+  }
+]
+
+var yo = {
+  tones: [
+    {
+      score: 0.6165,
+      tone_id: 'sadness',
+      tone_name: 'Sadness'
+    },
+    {
+      score: 0.829888,
+      tone_id: 'analytical',
+      tone_name: 'Analytical'
     }
   ]
 }
