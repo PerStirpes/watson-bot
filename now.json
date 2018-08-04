@@ -1,0 +1,7 @@
+{
+  "name": "toneloc",
+  "alias": "toneloc.now.sh",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
