@@ -59,3 +59,20 @@ var response = {
     }
   ]
 }
+
+
+{prop, descend, sort, project, compose, lensProp, view} = R
+//const getTones = R.props(['tone_name','score']) //use to get score&tone : remove toLower
+const getScore = R.prop('score')
+const sortDecending = R.descend(getScore)
+const sortByScoreDesc = R.sort(sortDecending)
+const getScoreAndTone = R.project(['score', 'tone_name'])
+const getTone = R.prop('tone_name')
+const getResults = R.compose(R.toLower, getTone, R.head, getScoreAndTone, sortByScoreDesc)
+const getLensTone = R.lensProp('tones')
+const _lens = R.view(getLensTone, document_tone)
+const render = getResults(_lens)
+
+// `${render} Why so serious` angry chat 
+//Your sentiment analysis is 
+log(`Your sentiment analysis is ${render}, You sound smart`)
