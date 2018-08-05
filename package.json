@@ -1,9 +1,9 @@
 {
   "name": "ToneLoc",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "author": "MBC",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": "https://github.com/PerStirpes/bashit",
   "scripts": {
     "start": "node ./bin/www",
@@ -36,7 +36,8 @@
     "ramda": "^0.25.0",
     "raven": "^2.6.3",
     "request": "^2.87.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "watson-developer-cloud": "^3.7.1"
   },
   "devDependencies": {
     "husky": "^1.0.0-rc.13",

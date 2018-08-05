@@ -1,11 +1,11 @@
-const fetch = require('node-fetch')
+// const fetch = require('node-fetch')
 const rp = require('request-promise')
-const { JOKES_API } = process.env
+const { WATSON_URL } = process.env
 const { sendDriftMessage } = require('./outgoing')
 const debug = require('debug')('server:incoming:jokes')
 
 const options = {
-  uri: JOKES_API,
+  uri: WATSON_URL,
   headers: {
     'User-Agent': 'Request-Promise',
     Accept: 'application/json'
@@ -27,23 +27,3 @@ function handleMessage (data, orgId, config = options) {
 }
 
 module.exports = { handleMessage }
-
-// below are some skeletons, I abandoned my first async attempt at the assignment
-// not working, but I did have plans to use the fetchSearchTermJoke function.
-const fetchSearchTermJoke = async term => {
-  const jokeSearch = `${JOKES_API}search?term=${term}`
-  const jokes = await fetchJokes(jokeSearch)
-    .then(res => res.json())
-    .catch(err => console.error(err))
-  debug('Bunch of %o jokes', jokes)
-  return response
-}
-
-async function fetchJokes (url) {
-  debug('resolving %s by joke url', url)
-  const headers = { Accept: 'application/json' }
-  const jokes = await fetch(url, { headers })
-    .then(res => res.json())
-    .catch(err => console.error(err))
-  return jokes
-}
