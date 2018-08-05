@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "author": "MBC",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "repository": "https://github.com/PerStirpes/bashit",
   "scripts": {
     "start": "node ./bin/www",

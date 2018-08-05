@@ -3,7 +3,8 @@ const app = express()
 const bodyParser = require('body-parser')
 const debug = require('debug')
 const { DRIFT_VERIFICATION_TOKEN } = process.env
-const { handleMessage } = require('./lib/incoming')
+const { handleMessage } = require('./libz/incoming')
+
 // debugging tools lines 10 - 18
 const Raven = require('raven')
 Raven.config(
@@ -19,7 +20,7 @@ app.use(function onError (err, req, res, next) {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get('/joke', authorize, status)
+app.get('/', authorize, status)
 
 app.post('/joke', authorize, joker)
 
