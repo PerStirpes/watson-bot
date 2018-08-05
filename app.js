@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -16,15 +18,6 @@ app.use(function onError (err, req, res, next) {
   res.status(500).end(`${res.sentry} ${err.message}` + '\n')
 })
 
-const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3')
-require('dotenv').config()
-
-const toneAnalyzer = new ToneAnalyzerV3({
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
-  version: '2017-09-21'
-})
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -35,16 +28,10 @@ app.post('/tone', authorize, tonyTheTiger)
 function tonyTheTiger ({ body }, response, next) {
   const { type, orgId, data } = body
   if (type === 'new_message') {
-    debug('what are we sending %O', data)
-    // handleMessage(data, orgId)
+    // debug('what are we sending %O', data)
+    handleMessage(data, orgId)
   }
   response.send('ok')
-  // toneAnalyzer.tone(body, function(err, data) {
-  //   if (err) {
-  //     return next(err)
-  //   }
-  //   return response.json(data)
-  // })
 }
 function authorize ({ body: { token } }, res, next) {
   if (DRIFT_VERIFICATION_TOKEN !== token) {

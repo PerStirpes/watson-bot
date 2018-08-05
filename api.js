@@ -30,7 +30,7 @@ function handleMessage (data, orgId, config = options) {
       console.log(err)
     }
     console.log(JSON.stringify(tone, null, 2))
-    return res.json(data)
+    // return res.json(data)
   })
 }
 

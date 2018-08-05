@@ -14,8 +14,8 @@ const tentative = ``
 const sentiments = [ 'Analytical', 'Anger', 'Confident', 'Fear', 'Joy', 'Sadness', 'Tentative']
 
 
-var response = {
-  document_tone: {
+
+var  document_tone = {
     tones: [
       {
         score: 0.6165,
@@ -28,7 +28,7 @@ var response = {
         tone_name: 'Analytical'
       }
     ]
-  },
+  ,
   sentences_tone: [
     {
       sentence_id: 0,
