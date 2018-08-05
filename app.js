@@ -2,10 +2,10 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
+const { json, urlencoded } = require('body-parser')
 const debug = require('debug')('app')
 const { DRIFT_VERIFICATION_TOKEN } = process.env
-const { handleMessage } = require('./libz/incoming')
+const { handleMessage } = require('./libz/incomingEvent')
 
 const Raven = require('raven')
 Raven.config(
@@ -18,17 +18,21 @@ app.use(function onError (err, req, res, next) {
   res.status(500).end(`${res.sentry} ${err.message}` + '\n')
 })
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(json())
+app.use(urlencoded({ extended: false }))
 
 app.get('/', authorize, status)
 
 app.post('/tone', authorize, tonyTheTiger)
 
-function tonyTheTiger ({ body }, response, next) {
+function tonyTheTiger ({ body, author }, response) {
   const { type, orgId, data } = body
-  if (type === 'new_message') {
-    // debug('what are we sending %O', data)
+  // const { bot } = author
+  console.log('author', data.author.bot)
+  if (type === 'new_message' && !data.author.bot) {
+    console.log('===================================x=')
+    debug('what are we sending %O', data)
+    console.log('====================================')
     handleMessage(data, orgId)
   }
   response.send('ok')
@@ -39,7 +43,6 @@ function authorize ({ body: { token } }, res, next) {
   }
   return next()
 }
-
 function status (_, response) {
   response.send(`<style>body {display: flex;justify-content: center;
     align-items: center;} span {font-size: 45px;font-family: Arial;}</style>

@@ -1,34 +1,16 @@
-const { identity, compose, fromPairs, map, split, tail, tap } = R
-const log = tap(console.log)
-
-const sentiment = `Your sentiment analysis is `
-const badRequest = `hmm, I'm can't get a good read on you, try typing another word or adding an emoji`
-const analytical = `You sound so smart`
-const angry = `Why so serious`
-const confident = `its not that you're cocky, your confident`
-const fear - `there's noting to fear except fear itself`
-const joy = ``
-const sadness = ``
-const tentative = ``
-
-const sentiments = [ 'Analytical', 'Anger', 'Confident', 'Fear', 'Joy', 'Sadness', 'Tentative']
-
-
-
-var  document_tone = {
-    tones: [
-      {
-        score: 0.6165,
-        tone_id: 'sadness',
-        tone_name: 'Sadness'
-      },
-      {
-        score: 0.829888,
-        tone_id: 'analytical',
-        tone_name: 'Analytical'
-      }
-    ]
-  ,
+var document_tone = {
+  tones: [
+    {
+      score: 0.6165,
+      tone_id: 'sadness',
+      tone_name: 'Sadness'
+    },
+    {
+      score: 0.829888,
+      tone_id: 'analytical',
+      tone_name: 'Analytical'
+    }
+  ],
   sentences_tone: [
     {
       sentence_id: 0,
@@ -72,20 +54,3 @@ var  document_tone = {
     }
   ]
 }
-
-
-{prop, descend, sort, project, compose, lensProp, view} = R
-//const getTones = R.props(['tone_name','score']) //use to get score&tone : remove toLower
-const getScore = R.prop('score')
-const sortDecending = R.descend(getScore)
-const sortByScoreDesc = R.sort(sortDecending)
-const getScoreAndTone = R.project(['score', 'tone_name'])
-const getTone = R.prop('tone_name')
-const getResults = R.compose(R.toLower, getTone, R.head, getScoreAndTone, sortByScoreDesc)
-const getLensTone = R.lensProp('tones')
-const _lens = R.view(getLensTone, document_tone)
-const render = getResults(_lens)
-
-// `${render} Why so serious` angry chat 
-//Your sentiment analysis is 
-log(`Your sentiment analysis is ${render}, You sound smart`)
