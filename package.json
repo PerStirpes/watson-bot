@@ -1,6 +1,6 @@
 {
   "name": "ToneLoc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "author": "MBC",
   "license": "MIT",
@@ -28,16 +28,14 @@
     }
   },
   "dependencies": {
-    "body-parser": "1.18.2",
-    "debug": "^3.1.0",
-    "dotenv": "^6.0.0",
+    "body-parser": "1.18.3",
+    "debug": "3.1.0",
+    "dotenv": "6.0.0",
     "express": "4.16.2",
-    "node-fetch": "^2.1.2",
-    "ramda": "^0.25.0",
-    "raven": "^2.6.3",
-    "request": "^2.87.0",
-    "request-promise": "^4.2.2",
-    "watson-developer-cloud": "^3.7.1"
+    "node-fetch": "2.2.0",
+    "ramda": "0.25.0",
+    "raven": "2.6.3",
+    "watson-developer-cloud": "3.7.1"
   },
   "devDependencies": {
     "husky": "^1.0.0-rc.13",
