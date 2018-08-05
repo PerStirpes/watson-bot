@@ -43,7 +43,6 @@ function fpMagic (document_tone) {
     getScoreAndTone,
     head,
     getTone,
-    log,
     toLower,
     log
   )

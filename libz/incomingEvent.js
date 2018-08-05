@@ -10,7 +10,11 @@ const toneAnalyzer = new ToneAnalyzerV3({
   version: '2017-09-21'
 })
 
-function handleMessage ({ body, conversationId }, orgId, cb = toneAnalyzer) {
+async function handleMessage (
+  { body, conversationId },
+  orgId,
+  cb = toneAnalyzer
+) {
   const toneParams = {
     tone_input: { text: body },
     content_type: 'application/json',
