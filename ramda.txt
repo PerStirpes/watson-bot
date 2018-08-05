@@ -1,10 +1,8 @@
-const cors = require('cors')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-app.use(cors())
 if (error || response.statusCode >= 400) {
         next(error)
     }
@@ -77,7 +75,6 @@ const result = getScoreAndTone(document_tone.tones)
 
 //.map(R.pick(['score', 'tone_name']))
 //R.evolve(response)
-//req.flash('message', 'log')
 
 
 //const predicate = R.where({
@@ -88,8 +85,23 @@ const result = getScoreAndTone(document_tone.tones)
 //const getResults = R.pipe(log, R.filter(predicate), R.pluck('score'))
 //const result = getResults(response)
 
-
-
+//const path = require("path");
+//const favicon = require("serve-favicon");
+//const logger = require("morgan");
+//const cookieParser = require("cookie-parser");
+//req.flash('message', 'log')
+//const compression = require("compression");
+//const helmet = require("helmet");
+//const cors = require('cors')
+//app.use(cors())
+////app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger("dev"));
+//app.use(cookieParser());
+//app.use(express.static(path.join(__dirname, "public")));
+//app.use(compression()); // Compress all routes
+//app.use(express.static(path.join(__dirname, "public")));
+https://github
+.com/PerStirpes/book-library-express/blob/master/app.js
 npm scripts: https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool
 useful Pipeline: https://egghead.io/lessons/javascript-build-a-functional-pipeline-with-ramda-js
 
@@ -99,3 +111,32 @@ useful Branching Logic: https://egghead.io/lessons/javascript-handle-branching-l
 https://developer.ibm.com/code/technologies/artificial-intelligence/
 
 https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@2_up" />
+        <link rel="stylesheet" href="css/normalize.css"/>
+        <link rel="shortcut icon" href="images/favicon.png" />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body>
+        <header role="banner">
+            <nav></nav>
+        </header>
+        
+        <main role="main"></main>
+        
+        <footer></footer>
+        <script src="js/app.js"></script>
+    </body>
+</html>
