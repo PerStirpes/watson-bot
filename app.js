@@ -45,7 +45,7 @@ function authorize ({ body: { token } }, res, next) {
 }
 
 function status (_, response) {
-  response.send(`<style>body {display: flex;justify-content: center;
+  response.status(200).send(`<style>body {display: flex;justify-content: center;
     align-items: center;} span {font-size: 45px;font-family: Arial;}</style>
     <span>🧚‍ We Are Live!, keep calm and code on 🧚</span>`)
 }
