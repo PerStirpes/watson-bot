@@ -3,8 +3,10 @@ const {
   compose,
   head,
   lensProp,
+  pipe,
   project,
   prop,
+  propOr,
   sort,
   tap,
   toLower,
@@ -13,32 +15,37 @@ const {
 
 const sentiment = `Your sentiment analysis is`
 const sentiments = [
-  { Analytical: `You sound so smart` },
-  { Anger: `Why so serious?` },
-  { Confident: `it's not that you're cocky, your confident` },
-  { Fear: `there's noting to fear except fear itself` },
-  { Joy: `🤗` },
-  { Sadness: `No need to be sad, here's a candy bar 🍫` },
-  { Tentative: `look here's a 🕷` }
+  {
+    Analytical: `You sound so smart`,
+    Anger: `Why so serious?`,
+    Confident: `it's not that you're cocky, your confident`,
+    Fear: `there's noting to fear except fear itself`,
+    Joy: `🤗`,
+    Sadness: `No need to be sad, here's a candy bar 🍫`,
+    Tentative: `look here's a 🕷`
+  }
 ]
 
 const log = tap(console.log)
 
 function fpMagic (document_tone) {
   const getScore = prop('score')
+  // const getScore = propOr('Default', 'score')
   const sortDecending = descend(getScore)
   const sortByScoreDesc = sort(sortDecending)
   const getScoreAndTone = project(['score', 'tone_name'])
-  const getTone = prop('tone_name')
+  // const getTone = prop('tone_name')
+  const getTone = propOr('I dont understand, try again', 'tone_name')
   const getLensTone = lensProp('tones')
   const _lens = view(getLensTone, document_tone)
-  const getResults = compose(
-    toLower,
-    getTone,
-    head,
-    log,
+  const getResults = pipe(
+    sortByScoreDesc,
     getScoreAndTone,
-    sortByScoreDesc
+    head,
+    getTone,
+    log,
+    toLower,
+    log
   )
   return `${sentiment} ${getResults(_lens)}`
 }

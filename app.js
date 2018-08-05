@@ -23,13 +23,12 @@ app.use(urlencoded({ extended: false }))
 
 app.get('/', authorize, status)
 
-app.post('/tone', authorize, tonyTheTiger)
+app.post('/tone', authorize, toneLoc)
 
-function tonyTheTiger ({ body, author }, response) {
-  const { type, orgId, data } = body
-  // const { bot } = author
-  console.log('author', data.author.bot)
-  if (type === 'new_message' && !data.author.bot) {
+function toneLoc ({ body }, response) {
+  const { type, orgId, data: { author }, data } = body
+
+  if (type === 'new_message' && author.bot === false) {
     console.log('===================================x=')
     debug('what are we sending %O', data)
     console.log('====================================')
@@ -37,12 +36,14 @@ function tonyTheTiger ({ body, author }, response) {
   }
   response.send('ok')
 }
+
 function authorize ({ body: { token } }, res, next) {
   if (DRIFT_VERIFICATION_TOKEN !== token) {
     return res.status(401).send('Not authorized')
   }
   return next()
 }
+
 function status (_, response) {
   response.send(`<style>body {display: flex;justify-content: center;
     align-items: center;} span {font-size: 45px;font-family: Arial;}</style>
