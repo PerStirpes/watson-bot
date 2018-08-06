@@ -10,7 +10,7 @@ const g = svg
 d3.json('../EliasQuotes.json', (error, quotes) => {
   if (error) throw error
 
-  const EliasQuotes = quotes.map(item => item.word)
+  const EliasQuotes = quotes.map(x => x.quote)
   const length = EliasQuotes.length - 1
 
   function update (data) {
@@ -18,9 +18,7 @@ d3.json('../EliasQuotes.json', (error, quotes) => {
 
     // JOIN new data with old elements
     const text = g.selectAll('text').data(data, d => d)
-    console.log('====================================')
-    console.log('text', text)
-    console.log('====================================')
+    
     // EXIT old elements not present in new data
     text
       .exit()
