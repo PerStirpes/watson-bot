@@ -18,7 +18,7 @@ d3.json('./EliasQuotes.json', (error, quotes) => {
 
     // JOIN new data with old elements
     const text = g.selectAll('text').data(data, d => d)
-    
+
     // EXIT old elements not present in new data
     text
       .exit()
@@ -56,7 +56,7 @@ d3.json('./EliasQuotes.json', (error, quotes) => {
   d3.interval(() => {
     const randomIndex = EliasQuotes[getRandomIndex(0, length)]
     update(randomIndex)
-  }, 15500)
+  }, 15000)
 })
 
 function getRandomIndex (floor, ceiling) {
