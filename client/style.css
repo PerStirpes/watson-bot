@@ -37,7 +37,7 @@ svg {
   fill: #CCC;
 }
 
-.container {
+/* .container {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -53,4 +53,4 @@ svg {
       left: 0;
       width: 100%;
       height: 100%;
-  }
+  } */
