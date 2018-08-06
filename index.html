@@ -24,8 +24,7 @@
 <body>
     <nav class="flex items-center justify-between flex-wrap bg-black p-6">
         <div class="flex items-center flex-no-shrink text-white mr-6">
-            <img class="help-center-logo" id="logo" style="max-height: 40px" src="https://s3.us-east-2.amazonaws.com/knowledgebase-web/Artboard+2.svg"
-                alt="https://s3.us-east-2.amazonaws.com/knowledgebase-web/Artboard+2.svg">
+            <img class="help-center-logo" id="logo" style="max-height: 40px" src="static/Drift_LogoMark_White.png" alt="https://s3.us-east-2.amazonaws.com/knowledgebase-web/Artboard+2.svg">
             <span class="font-semibold text-xl tracking-tight pl-1">Watson Tone Analyzer</span>
         </div>
     </nav>
@@ -37,11 +36,17 @@
     <br>
     <br>
 
-    <svg width="100%" height="250">
-    </svg>
-    <marquee behavior="alternate" direction="">
+
+    <marquee direction="">
+        <svg width="100%" height="250">
+        </svg>
     </marquee>
 
+    <input type="text" id="input">
+    <button type="button" id="button">Add</button>
+    <ul id="list">
+        <!-- Pets -->
+    </ul>
     <link rel="stylesheet" href="main.css" />
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="./client/wordUpdate.js"></script>
@@ -54,6 +59,66 @@
             location = '#watson-chat'
         }
     )
+
+    // see console for output!
+
+    const items = [
+        {
+            active: true,
+            firstname: 'Shane',
+            lastname: 'Osbourne'
+        },
+        {
+            active: true,
+            firstname: 'Sally',
+            lastname: 'Osbourne'
+        },
+        {
+            active: false,
+            firstname: 'Ben',
+            lastname: 'Barker'
+        }
+    ];
+
+    const mapped = items
+        .filter(x => x.active)
+        .map(x => x.firstname);
+
+    function createHtmlList(items) {
+        const listElements = items.map(x => ` <li>${x}</li>`).join('');
+        return `<ul>${listElements}</ul>`;
+    }
+
+    console.log(createHtmlList(mapped)) || displayInPreview(createHtmlList(mapped))
+
+    const list = document.querySelector('#list');
+
+    function displayInPreview(string) {
+        var newDiv = document.createElement("div");
+        var newContent = document.createTextNode(string);
+        newDiv.appendChild(newContent);
+        document.body.appendChild(newDiv)
+    }
+
+
+    const input = document.querySelector('#input');
+    const button = document.querySelector('#button');
+    const list = document.querySelector('#list');
+
+    const pets = [];
+
+    button.addEventListener("click", function (evt) {
+        if (input.value.length > 0) {
+            pets.push(input.value);
+            input.value = "";
+            render();
+        }
+    });
+
+    function render() {
+        list.innerHTML = pets.map(x => `<li>${x}</li>`).join('');
+    }
+
 </script>
 
 

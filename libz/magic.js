@@ -16,13 +16,13 @@ const {
 const sentiment = `Your sentiment analysis is`
 const sentiments = [
   {
-    Analytical: `You sound so smart`,
-    Anger: `Why so serious?`,
-    Confident: `it's not that you're cocky, your confident`,
-    Fear: `there's noting to fear except fear itself`,
-    Joy: `🤗`,
-    Sadness: `No need to be sad, here's a candy bar 🍫`,
-    Tentative: `look here's a 🕷`
+    analytical: `You sound so smart`,
+    anger: `Why so serious?`,
+    confident: `it's not that you're cocky, your confident`,
+    fear: `there's noting to fear except fear itself`,
+    joy: `🤗`,
+    sadness: `No need to be sad, here's a candy bar 🍫`,
+    tentative: `look here's a 🕷`
   }
 ]
 
@@ -46,9 +46,10 @@ function fpMagic (document_tone) {
     toLower,
     log
   )
-  return getResults(_lens) === 'default'
+  const render = getResults(_lens)
+  return render === 'default'
     ? `Sorry I'm still learning, try sending a different messaging`
-    : `${sentiment} ${getResults(_lens)}`
+    : `${sentiment} ${render} ${sentiments[render]}`
 }
 
 module.exports = { fpMagic }

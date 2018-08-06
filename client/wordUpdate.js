@@ -5,7 +5,7 @@ const height = +svg.attr('height')
 const g = svg
   .append('g')
   .attr('transform', `translate(28, ${height / 2})`)
-  .style('font-size', '18px')
+  .style('font-size', '20px')
 
 d3.json('../EliasQuotes.json', (error, quotes) => {
   if (error) throw error
@@ -14,7 +14,7 @@ d3.json('../EliasQuotes.json', (error, quotes) => {
   const length = EliasQuotes.length - 1
 
   function update (data) {
-    const t = d3.transition().duration(3500)
+    const t = d3.transition().duration(14500)
 
     // JOIN new data with old elements
     const text = g.selectAll('text').data(data, d => d)
@@ -58,7 +58,7 @@ d3.json('../EliasQuotes.json', (error, quotes) => {
   d3.interval(() => {
     const randomIndex = EliasQuotes[getRandomIndex(0, length)]
     update(randomIndex)
-  }, 4500)
+  }, 15500)
 })
 
 function getRandomIndex (floor, ceiling) {
