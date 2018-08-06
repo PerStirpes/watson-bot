@@ -1,7 +1,7 @@
 const app = require('express')()
 const cors = require('cors')
 const { json, urlencoded } = require('body-parser')
-const { authorize, status, toneLoc } = require('./handlers/')
+const { authorize, status, toneLoc } = require('./server/handlers')
 const Raven = require('raven')
 
 Raven.config(

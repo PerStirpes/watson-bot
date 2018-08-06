@@ -1,4 +1,4 @@
-const { handleMessage } = require('../libz/incomingEvent')
+const { handleMessage } = require('../lib/incomingEvent')
 const { DRIFT_VERIFICATION_TOKEN } = process.env
 const debug = require('debug')('routes')
 

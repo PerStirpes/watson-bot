@@ -1,9 +1,7 @@
 #!/usr/bin/env node
-require('dotenv').config()
-
 const { createServer } = require('http')
 const debug = require('debug')('bin-server')
-const app = require('./../server/app')
+const app = require('../app')
 
 app.set('port', process.env.PORT || 3000)
 
@@ -11,6 +9,7 @@ const server = createServer(app)
 
 server.listen(app.get('port'), () => {
   if (process.env.NODE_ENV === 'development') {
-    debug(`> hi from development, We're live on port ${server.address().port}`)
+    debug('hi from development')
   }
+  console.log(`> We're live on port ${server.address().port}`)
 })
