@@ -1,3 +1,14 @@
+* https://blog.drift.com/drift-platform/
+* https://blog.drift.com/break-free/
+* https://blog.drift.com/customer-driven-marketing/
+* https://blog.drift.com/how-to-build-a-one-of-a-kind-product-team-in-boston/
+* https://blog.drift.com/seeking-wisdom-leadership-principles/
+* https://blog.drift.com/lessons-from-jocko/
+
+* https://blog.drift.com/ai-for-sales/
+* https://medium.com/@steyblind/how-to-put-the-senior-in-senior-software-engineer-70296dde1466
+
+“I wasn’t sure about this one when the team came to me with the idea, but I recently re-read The Innovator’s Dilemma and figured, ah whatever – let’s do it.”
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
