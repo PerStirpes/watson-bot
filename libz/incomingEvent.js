@@ -9,12 +9,8 @@ const toneAnalyzer = new ToneAnalyzerV3({
   password: process.env.PASSWORD,
   version: '2017-09-21'
 })
-
-async function handleMessage (
-  { body, conversationId },
-  orgId,
-  cb = toneAnalyzer
-) {
+// potential add async
+function handleMessage ({ body, conversationId }, orgId, cb = toneAnalyzer) {
   const toneParams = {
     tone_input: { text: body },
     content_type: 'application/json',

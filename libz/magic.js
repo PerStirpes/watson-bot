@@ -35,7 +35,7 @@ function fpMagic (document_tone) {
   const sortByScoreDesc = sort(sortDecending)
   const getScoreAndTone = project(['score', 'tone_name'])
   // const getTone = prop('tone_name')
-  const getTone = propOr('I dont understand, try again', 'tone_name')
+  const getTone = propOr('default', 'tone_name')
   const getLensTone = lensProp('tones')
   const _lens = view(getLensTone, document_tone)
   const getResults = pipe(
@@ -46,7 +46,9 @@ function fpMagic (document_tone) {
     toLower,
     log
   )
-  return `${sentiment} ${getResults(_lens)}`
+  return getResults(_lens) === 'default'
+    ? `Sorry I'm still learning, try sending a different messaging`
+    : `${sentiment} ${getResults(_lens)}`
 }
 
 module.exports = { fpMagic }
