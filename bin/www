@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+require('dotenv').config()
 
 const { createServer } = require('http')
 const debug = require('debug')('bin-server')
-const app = require('../app')
+const app = require('./../server/app')
 
 app.set('port', process.env.PORT || 3000)
 

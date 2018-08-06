@@ -14,14 +14,14 @@ const {
 } = require('ramda')
 
 const sentiments = {
-    analytical: `Smart people build businesses, wise people build relationships`,
-    anger: `Why so serious?`,
-    confident: `Confidence is silent. Insecurities are loud`,
-    fear: `listen to this bit.ly/seekingwisdom-60`,
-    joy: `🤗 here's a pony 🐴`,
-    sadness: `Sadness does not come from bad circumstances. It comes from bad thoughts`,
-    tentative: `look here's a 🕷`
-  }
+  analytical: `Smart people build businesses, wise people build relationships`,
+  anger: `Why so serious?`,
+  confident: `Confidence is silent. Insecurities are loud`,
+  fear: `listen to this bit.ly/seekingwisdom-60`,
+  joy: `🤗 here's a pony 🐴`,
+  sadness: `Sadness does not come from bad circumstances. It comes from bad thoughts`,
+  tentative: `look here's a 🕷`
+}
 const sentiment = `Your sentiment analysis is`
 const log = tap(console.log)
 
@@ -41,12 +41,12 @@ function fpMagic (document_tone) {
     toLower,
     log
   )
-  
+
   const result = operate(_lens)
-  
+
   return result === 'default'
-    ? `Sorry I'm still learning, try sending a different messaging`
-    : `${sentiment} ${result}, ${sentiments[result]}`
+    ? `Sorry, I'm still learning, try sending a different messaging`
+    : `${sentiment} <b>${result}</b>, ${sentiments[result]}`
 }
 
 module.exports = { fpMagic }

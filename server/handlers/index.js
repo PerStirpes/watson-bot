@@ -1,29 +1,6 @@
-require('dotenv').config()
-
-const express = require('express')
-const app = express()
-const { json, urlencoded } = require('body-parser')
-const debug = require('debug')('app')
+const { handleMessage } = require('../libz/incomingEvent')
 const { DRIFT_VERIFICATION_TOKEN } = process.env
-const { handleMessage } = require('./libz/incomingEvent')
-
-const Raven = require('raven')
-Raven.config(
-  'https://ef897a7e139c44b6a597c6b6a65147bc@sentry.io/1249642'
-).install()
-app.use(Raven.requestHandler())
-app.use(Raven.errorHandler())
-app.use(function onError (err, req, res, next) {
-  console.error(err.message)
-  res.status(500).end(`${res.sentry} ${err.message}` + '\n')
-})
-
-app.use(json())
-app.use(urlencoded({ extended: false }))
-
-app.get('/', authorize, status)
-
-app.post('/tone', authorize, toneLoc)
+const debug = require('debug')('routes')
 
 function toneLoc ({ body }, response) {
   const { type, orgId, data: { author }, data } = body
@@ -50,4 +27,4 @@ function status (_, response) {
     <span>🧚‍ We Are Live!, keep calm and code on 🧚</span>`)
 }
 
-module.exports = app
+module.exports = { authorize, status, toneLoc }

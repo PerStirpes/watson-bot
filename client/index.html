@@ -47,9 +47,9 @@
     <ul id="list">
         <!-- Pets -->
     </ul>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="./client/wordUpdate.js"></script>
+    <script src="./wordUpdate.js"></script>
 </body>
 <script>
     const $ = document.body
@@ -60,6 +60,10 @@
         }
     )
 
+
+
+</script>
+<script>
     // see console for output!
 
     const items = [
@@ -118,9 +122,7 @@
     function render() {
         list.innerHTML = pets.map(x => `<li>${x}</li>`).join('');
     }
-
 </script>
-
 
 
 

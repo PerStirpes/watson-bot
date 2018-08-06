@@ -1,4 +1,3 @@
-require('dotenv').config()
 const { sendDriftMessage } = require('./postMessageToDrift')
 const { fpMagic } = require('./magic')
 const debug = require('debug')('server:incoming:events')

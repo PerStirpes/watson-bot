@@ -1,84 +1,26 @@
-* https://blog.drift.com/drift-platform/
-* https://blog.drift.com/break-free/
-* https://blog.drift.com/customer-driven-marketing/
-* https://blog.drift.com/how-to-build-a-one-of-a-kind-product-team-in-boston/
-* https://blog.drift.com/seeking-wisdom-leadership-principles/
-* https://blog.drift.com/lessons-from-jocko/
+- https://blog.drift.com/drift-platform/
+- https://blog.drift.com/break-free/
+- https://blog.drift.com/customer-driven-marketing/
+- https://blog.drift.com/how-to-build-a-one-of-a-kind-product-team-in-boston/
+- https://blog.drift.com/seeking-wisdom-leadership-principles/
+- https://blog.drift.com/lessons-from-jocko/
 
-* https://blog.drift.com/ai-for-sales/
-* https://medium.com/@steyblind/how-to-put-the-senior-in-senior-software-engineer-70296dde1466
+- https://blog.drift.com/ai-for-sales/
+- https://medium.com/@steyblind/how-to-put-the-senior-in-senior-software-engineer-70296dde1466
 
 “I wasn’t sure about this one when the team came to me with the idea, but I recently re-read The Innovator’s Dilemma and figured, ah whatever – let’s do it.”
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
+require('dotenv').config()
 }
 
 if (error || response.statusCode >= 400) {
-        next(error)
-    }
-      
+next(error)
+}
 
 https://egghead.io/lessons/javascript-ramda-filter-reject-and-partition
 https://egghead.io/lessons/javascript-change-object-properties-with-ramda-lenses
 https://egghead.io/lessons/javascript-pick-and-omit-properties-from-objects-using-ramda
-
-const document_tone = {
-    tones: [
-      {
-        score: 0.6165,
-        tone_id: "sadness",
-        tone_name: "Sadness"
-      },
-      {
-        score: 0.829888,
-        tone_id: "analytical",
-        tone_name: "Analytical"
-      }
-    ],
-  sentences_tone: [
-    {
-      sentence_id: 0,
-      text: "Team, I know that times are tough!",
-      tones: [
-        {
-          score: 0.801827,
-          tone_id: "analytical",
-          tone_name: "Analytical"
-        }
-      ]
-    },
-    {
-      sentence_id: 1,
-      text:
-        "Product sales have been disappointing for the past three quarters.",
-      tones: [
-        {
-          score: 0.771241,
-          tone_id: "sadness",
-          tone_name: "Sadness"
-        },
-        {
-          score: 0.687768,
-          tone_id: "analytical",
-          tone_name: "Analytical"
-        }
-      ]
-    },
-    {
-      sentence_id: 2,
-      text:
-        "We have a competitive product, but we need to do a better job of selling it!",
-      tones: [
-        {
-          score: 0.506763,
-          tone_id: "analytical",
-          tone_name: "Analytical"
-        }
-      ]
-    }
-  ]
-};
 
 const getProps = R.pick(['tones'])
 const getScoreAndTone = R.project(['score', 'tone_name'])
@@ -87,11 +29,9 @@ const result = getScoreAndTone(document_tone.tones)
 //.map(R.pick(['score', 'tone_name']))
 //R.evolve(response)
 
-
 //const predicate = R.where({
-  //document_tone: R.equals('tones'),
+//document_tone: R.equals('tones'),
 //} )
-
 
 //const getResults = R.pipe(log, R.filter(predicate), R.pluck('score'))
 //const result = getResults(response)
@@ -105,12 +45,12 @@ const result = getScoreAndTone(document_tone.tones)
 //const helmet = require("helmet");
 //const cors = require('cors')
 //app.use(cors())
-////app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+////app.use(favicon(path.join(**dirname, 'public', 'favicon.ico')));
 app.use(logger("dev"));
 //app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, "public")));
+//app.use(express.static(path.join(**dirname, "public")));
 //app.use(compression()); // Compress all routes
-//app.use(express.static(path.join(__dirname, "public")));
+//app.use(express.static(path.join(\_\_dirname, "public")));
 https://github
 .com/PerStirpes/book-library-express/blob/master/app.js
 npm scripts: https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool
@@ -118,13 +58,9 @@ useful Pipeline: https://egghead.io/lessons/javascript-build-a-functional-pipeli
 
 useful Branching Logic: https://egghead.io/lessons/javascript-handle-branching-logic-with-ramda-s-conditional-functions
 
-
 https://developer.ibm.com/code/technologies/artificial-intelligence/
 
 https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -144,13 +80,13 @@ https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
         <header role="banner">
             <nav></nav>
         </header>
-        
-        <main role="main"></main>
-        
-        <footer></footer>
-        <script src="js/app.js"></script>
-    </body>
-</html>
 
+        <main role="main"></main>
+
+        <footer></footer>
+        <script src="client/index.js"></script>
+    </body>
+
+</html>
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
