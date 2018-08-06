@@ -7,7 +7,7 @@ const g = svg
   .attr('transform', `translate(28, ${height / 2})`)
   .style('font-size', '20px')
 
-d3.json('../EliasQuotes.json', (error, quotes) => {
+d3.json('./EliasQuotes.json', (error, quotes) => {
   if (error) throw error
 
   const EliasQuotes = quotes.map(x => x.quote)
