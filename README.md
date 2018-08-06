@@ -1,4 +1,8 @@
-# bashit
+# Watson sentiment(tone) bot
+
+https://developer.ibm.com/code/technologies/artificial-intelligence/
+
+https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
 
 [x] Align message response with sentiment
 [x] Polish static webpage
