@@ -1,13 +1,13 @@
 # bashit
 
-[ ] Align message response with sentiment
-[ ] Polish static webpage
-[ ] fix nav
+[x] Align message response with sentiment
+[x] Polish static webpage
+[x] fix nav
 [ ] centrally locate button
-[ ] Add description text
-[ ] Add a few example messages
+[x] Add description text
+[x] Add a few example messages
 
 ---
 
-[ ] d3
-[ ] marquee
+[x] d3
+[x] marquee

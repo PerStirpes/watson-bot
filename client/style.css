@@ -12,31 +12,11 @@ body, html {
 }
 
 
-
-
-
-#content code {
-  font: 12px "Cutive Mono", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+li {
+  font-size: 16px;
+  padding: 10px;
   text-rendering: geometricPrecision;
-  /* color: hsl(60, 100%, 50%); */
-}
-
-
-#content p code:before, #content p code:after,
-#content li code:before, #content li code:after {
-  content: '`';
-  color: hsl(60, 100%, 50%);
-}
-
-#content pre {
-  margin: 20px;
-  color: rgb(189, 16, 224);
-
-  line-height: 18px;
-}
-
-#content {
-  padding: 20px;
+  font-family: Merriweather, proxima-nova, Proxima Nova,ProximaNova,Avenir,sans-serif;
 }
 
 svg {
@@ -56,81 +36,5 @@ svg {
 .exit {
   fill: #CCC;
 }
-.svg-container {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%; /* aspect ratio */
-  vertical-align: top;
-  /* overflow: auto; */
-}
-.svg-content-responsive {
-  display: inline-block;
-  position: absolute;
-  top: 10px;
-  left: 0;
-}
-
-a{
-  -webkit-text-decoration-line: none;
-  text-decoration-line: none;
-  text-decoration: none;
-}
 
 
-span a {
-  position: fixed;
-  right: 10px;
-  top: 11rem;
-  text-decoration: none;
-  padding: 1em 0;
-  font-family: proxima-nova,Proxima Nova,ProximaNova,Avenir,sans-serif;
-  border-width: 0;
-  margin: 0;
-  margin-bottom: 0.8rem;
-  z-index: 10000;
-}
-
-
-
-#icons svg {
-  fill: #ccc;
-  vertical-align: top;
-  width: 2em;
-  padding: 0 0.5em;
-  -webkit-filter: drop-shadow(0 0 0 white);
-  filter: drop-shadow(0 0 0 white);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: fill, filter, padding, width;
-  transition-property: fill, filter, padding, width;
-}
-
-#icons svg:hover {
-  width: 2.5em;
-  padding: 0 0.8em;
-}
-
-#icons .github:hover {
-  fill: #ffffff;
-  -webkit-filter: drop-shadow(0 0 0.2em #ffffff);
-  filter: drop-shadow(0 0 0.2em #ffffff);
-}
-
-#icons .twitter:hover {
-  fill: #1da1f2;
-  -webkit-filter: drop-shadow(0 0 0.2em #1da1f2);
-  filter: drop-shadow(0 0 0.2em #1da1f2);
-}
-
-#icons .linkedin:hover {
-  fill: #0077b5;
-  -webkit-filter: drop-shadow(0 0 0.2em #0077b5);
-  filter: drop-shadow(0 0 0.2em #0077b5);
-}
-
-#icons .instagram:hover {
-  fill: #e4405f;
-  -webkit-filter: drop-shadow(0 0 0.2em #e4405f);
-  filter: drop-shadow(0 0 0.2em #e4405f);
-}
